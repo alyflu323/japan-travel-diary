@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#cf4636" />
+<title>Japan Travel Diary · 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2c2a33;
+    --ink-soft:#5d5a64;
+    --muted:#9b97a1;
+    --paper:#f5f3ed;
+    --paper-2:#ffffff;
+    --line:#e8e4da;
+    --accent:#cf4636;        /* rojo japonés */
+    --accent-deep:#a8392c;
+    --indigo:#46578a;        /* azul transporte */
+    --gold:#c39a4a;
+    --soft:#efece4;
+    --shadow:0 10px 24px -18px rgba(60,50,40,.40);
+    --r:16px;
+    /* colores por categoría (barrita izquierda) */
+    --c-transport:#46578a;
+    --c-hotel:#7b8190;
+    --c-food:#d2902f;
+    --c-nature:#5a9367;
+    --c-shop:#8a6aa0;
+    --c-spot:#cf4636;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;font-family:"Zen Kaku Gothic New",system-ui,sans-serif;color:var(--ink);
+    background-color:var(--paper);min-height:100vh;line-height:1.5;padding-bottom:env(safe-area-inset-bottom);
+  }
+
+  header{position:sticky;top:0;z-index:30;background:rgba(245,243,237,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:calc(env(safe-area-inset-top) + 11px) 16px 0;}
+  .brand{display:flex;align-items:center;gap:11px;justify-content:center;max-width:760px;margin:0 auto;}
+  .seal{flex:none;width:36px;height:36px;border-radius:10px;background:var(--accent);color:#fff;display:grid;place-items:center;font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:19px;box-shadow:0 4px 10px -4px rgba(168,57,44,.5);}
+  .brandtxt small{display:block;font-weight:700;font-size:9.5px;letter-spacing:2.4px;text-transform:uppercase;color:var(--accent);}
+  .brandtxt h1{font-family:"Shippori Mincho B1",serif;font-weight:700;font-size:clamp(17px,4.8vw,21px);margin:1px 0 0;letter-spacing:.3px;color:var(--ink);}
+
+  nav{max-width:760px;margin:11px auto 0;display:flex;gap:8px;overflow-x:auto;padding:0 2px 11px;scrollbar-width:none;}
+  nav::-webkit-scrollbar{display:none;}
+  .tab{flex:none;border:1px solid var(--line);background:var(--paper-2);border-radius:12px;padding:7px 12px;cursor:pointer;display:flex;align-items:center;gap:9px;color:var(--ink-soft);transition:.2s;font-size:13px;}
+  .tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .tab .d-num{font-weight:700;font-size:13px;line-height:1;color:var(--ink);}
+  .tab .d-sub{font-size:10px;color:var(--muted);letter-spacing:.4px;}
+  .tab.active{background:#fff;border-color:var(--accent);box-shadow:0 4px 12px -8px rgba(207,70,54,.6);}
+  .ring{flex:none;}
+  .ring text{font-weight:700;fill:var(--ink-soft);}
+
+  main{max-width:760px;margin:0 auto;padding:18px 16px 60px;}
+  .day{display:none;animation:fade .4s ease both;}
+  .day.show{display:block;}
+  @keyframes fade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+
+  .intro{text-align:center;padding:12px 6px 18px;}
+  .eyebrow{font-size:10.5px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:700;}
+  .intro h2{font-family:"Shippori Mincho B1",serif;font-weight:700;font-size:clamp(23px,6.4vw,31px);margin:6px 0 4px;line-height:1.15;color:var(--ink);}
+  .intro .date{font-size:12.5px;color:var(--muted);}
+  .quote{font-family:"Shippori Mincho B1",serif;font-style:italic;font-weight:500;color:var(--ink-soft);font-size:14px;max-width:30em;margin:14px auto 0;position:relative;padding:0 16px;}
+  .quote::before,.quote::after{color:var(--accent);font-size:24px;font-style:normal;line-height:0;position:relative;top:7px;opacity:.6;}
+  .quote::before{content:"\201C";margin-right:2px;}
+  .quote::after{content:"\201D";margin-left:2px;}
+
+  .progress{max-width:420px;margin:16px auto 4px;}
+  .progress .bar{height:8px;border-radius:99px;background:var(--line);overflow:hidden;}
+  .progress .fill{height:100%;width:0;border-radius:99px;background:var(--accent);transition:width .5s cubic-bezier(.4,1.3,.5,1);}
+  .progress .lbl{display:flex;justify-content:space-between;margin-top:7px;font-size:12px;color:var(--muted);}
+  .progress .lbl b{color:var(--accent);}
+
+  .list{margin-top:22px;}
+
+  .card{position:relative;background:var(--paper-2);border:1px solid var(--line);border-left:4px solid var(--c-spot);border-radius:var(--r);margin-bottom:11px;box-shadow:var(--shadow);transition:background .25s,border-color .25s,box-shadow .25s;}
+  .card.done{background:#f7f5ef;box-shadow:none;}
+
+  .card-row{display:flex;align-items:stretch;}
+  .htap{flex:1;min-width:0;display:flex;align-items:center;gap:10px;cursor:pointer;padding:12px 4px 12px 13px;background:none;border:none;text-align:left;color:inherit;font:inherit;border-radius:var(--r);}
+  .htap:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;}
+  .time{flex:none;font-weight:700;font-size:11px;color:#fff;background:#3a3742;border-radius:7px;padding:3px 7px;letter-spacing:.3px;min-width:46px;text-align:center;}
+  .time.soft{background:var(--soft);color:var(--ink-soft);}
+  .emoji{font-size:18px;flex:none;}
+  .ttl{flex:1;min-width:0;}
+  .ttl h3{font-family:"Shippori Mincho B1",serif;font-weight:700;font-size:15px;margin:0;line-height:1.25;color:var(--ink);}
+  .ttl .stars{color:var(--gold);font-size:10px;letter-spacing:1px;margin-left:5px;}
+  .ttl .idea{font-size:11.5px;color:var(--ink-soft);margin-top:1px;line-height:1.3;}
+  .card.done .ttl .idea{color:var(--muted);}
+  .chev{flex:none;color:var(--muted);transition:transform .3s ease;margin-right:10px;}
+  .card.open .chev,.block.open .chev{transform:rotate(180deg);}
+
+  .detail{overflow:hidden;max-height:0;transition:max-height .34s ease;}
+  .card.open .detail,.block.open .detail{max-height:1600px;}
+  .detail-inner{min-height:0;}
+  .card .detail-inner{padding:2px 16px 13px 53px;}
+
+  .desc{margin:0;font-size:13px;color:var(--ink-soft);}
+  .lore{margin-top:9px;background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:8px 11px;}
+  .lore .lh{display:block;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:3px;}
+  .lore p{margin:0;font-size:12px;color:var(--ink-soft);}
+  .tips{list-style:none;padding:0;margin:9px 0 0;display:flex;flex-direction:column;gap:6px;}
+  .tips li{font-size:12.5px;color:var(--ink-soft);display:flex;gap:8px;align-items:flex-start;}
+  .tips li .ti{flex:none;}
+
+  .stamp{flex:none;width:52px;border:none;background:none;cursor:pointer;position:relative;display:grid;place-items:center;}
+  .stamp .ph{width:30px;height:30px;border-radius:9px;border:2px solid var(--line);transition:.2s;}
+  .stamp .ink{position:absolute;width:30px;height:30px;border-radius:9px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:17px;opacity:0;transform:scale(.2) rotate(-20deg);transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .2s;box-shadow:0 4px 9px -4px rgba(168,57,44,.6);}
+  .stamp .ink::after{content:"\2713";}
+  .card.done .stamp .ph{opacity:0;}
+  .card.done .stamp .ink{opacity:1;transform:scale(1) rotate(-6deg);}
+  .stamp:focus-visible{outline:2px solid var(--accent);outline-offset:-4px;border-radius:14px;}
+  .stamp:active .ink{transform:scale(.9) rotate(-6deg);}
+  .card.done .ttl h3{text-decoration:line-through;text-decoration-color:rgba(168,57,44,.4);text-decoration-thickness:1.5px;color:var(--muted);}
+  .card.done .emoji{filter:grayscale(.5);opacity:.6;}
+
+  .block{position:relative;background:var(--paper-2);border:1px solid var(--line);border-left:4px solid var(--c-hotel);border-radius:var(--r);margin-bottom:11px;box-shadow:var(--shadow);overflow:hidden;}
+  .block.todo{border-left-color:var(--c-spot);}
+  .bhead{width:100%;display:flex;align-items:center;gap:10px;cursor:pointer;background:none;border:none;text-align:left;color:inherit;font:inherit;padding:13px 15px;}
+  .bhead:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;}
+  .bhead .emoji{font-size:17px;}
+  .bhead h4{font-family:"Shippori Mincho B1",serif;font-size:14.5px;margin:0;flex:1;color:var(--ink);}
+  .count{font-size:11.5px;font-weight:700;color:var(--accent);background:var(--soft);border-radius:99px;padding:2px 9px;}
+  .count.full{color:#fff;background:var(--accent);}
+  .block .detail-inner{padding:0 15px 7px;}
+  .micro{display:flex;flex-direction:column;gap:2px;}
+  .micro button{display:flex;align-items:center;gap:11px;background:none;border:none;cursor:pointer;font-family:inherit;font-size:13.5px;color:var(--ink-soft);padding:8px 2px;text-align:left;width:100%;border-radius:8px;}
+  .micro button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .micro .box{flex:none;width:21px;height:21px;border-radius:6px;border:2px solid var(--line);display:grid;place-items:center;transition:.2s;color:#fff;font-size:12px;}
+  .micro button[aria-pressed="true"] .box{background:var(--accent);border-color:var(--accent);}
+  .micro button[aria-pressed="true"] .box::after{content:"\2713";}
+  .micro button[aria-pressed="true"] .txt{text-decoration:line-through;color:var(--muted);}
+
+  /* diario */
+  .journal{margin-top:30px;border-radius:20px;padding:2px;background:linear-gradient(160deg,var(--indigo),var(--accent));box-shadow:0 14px 30px -22px rgba(60,40,40,.6);}
+  .journal-in{background:var(--paper-2);border-radius:18px;padding:16px 15px 18px;}
+  .journal-h{text-align:center;font-family:"Shippori Mincho B1",serif;font-size:17px;margin:2px 0 2px;color:var(--ink);}
+  .journal-sub{text-align:center;font-size:11px;color:var(--muted);margin-bottom:14px;}
+  .jcard{background:#faf8f3;border:1px solid var(--line);border-radius:13px;padding:12px 13px;margin-bottom:11px;}
+  .jcard .jt{display:flex;align-items:center;gap:8px;font-family:"Shippori Mincho B1",serif;font-size:13.5px;font-weight:700;margin-bottom:8px;color:var(--ink);}
+  .jcard .qtext{font-size:13px;color:var(--ink-soft);margin:0 0 9px;line-height:1.45;}
+  textarea,input.fld{width:100%;font-family:inherit;font-size:13px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:9px;padding:9px 10px;resize:vertical;}
+  textarea:focus,input.fld:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(207,70,54,.12);}
+  textarea{min-height:60px;}
+  .mfield{margin-bottom:9px;}
+  .mfield:last-child{margin-bottom:0;}
+  .mfield label{display:block;font-size:11px;font-weight:700;color:var(--accent-deep);margin-bottom:4px;letter-spacing:.3px;}
+
+  .photo-zone{display:block;border:2px dashed var(--muted);border-radius:11px;padding:18px;text-align:center;cursor:pointer;color:var(--ink-soft);font-size:12.5px;background:#fff;transition:.2s;}
+  .photo-zone:hover{background:var(--soft);}
+  .photo-wrap{border-radius:11px;overflow:hidden;line-height:0;}
+  .photo-wrap img{width:100%;display:block;}
+  .photo-rm{display:block;margin:9px auto 0;background:var(--soft);color:var(--ink-soft);border:none;border-radius:99px;font-size:11.5px;padding:7px 15px;cursor:pointer;font-family:inherit;}
+  .photo-rm:hover{background:#e7e3d8;}
+  .hidden-file{display:none;}
+
+  .hearts{display:flex;gap:6px;justify-content:center;}
+  .hearts button{background:none;border:none;cursor:pointer;font-size:25px;line-height:1;padding:2px;filter:grayscale(1);opacity:.45;transition:transform .15s,opacity .15s,filter .15s;}
+  .hearts button.on{filter:none;opacity:1;}
+  .hearts button:active{transform:scale(1.25);}
+  .hearts button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:8px;}
+
+  .day-foot{margin-top:22px;display:flex;flex-direction:column;gap:13px;align-items:center;text-align:center;}
+  .ratings{display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center;font-size:12px;color:var(--ink-soft);}
+  .ratings span b{color:var(--gold);letter-spacing:1px;}
+  .next{font-size:12.5px;color:var(--ink-soft);background:var(--paper-2);border:1px solid var(--line);border-radius:13px;padding:12px 16px;max-width:34em;}
+  .next b{color:var(--accent);}
+  .reset{background:none;border:1px solid var(--line);color:var(--muted);font-size:12px;border-radius:99px;padding:7px 16px;cursor:pointer;transition:.2s;}
+  .reset:hover{border-color:var(--accent);color:var(--accent);}
+  .note{text-align:center;font-size:11px;color:var(--muted);max-width:30em;margin:22px auto 0;line-height:1.6;}
+
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="seal">旅</div>
+    <div class="brandtxt">
+      <small>Alyssa &amp; Pol · 2026</small>
+      <h1>Japan Travel Diary</h1>
+    </div>
+  </div>
+  <nav id="tabs" aria-label="Días del viaje"></nav>
+</header>
+
+<main id="main"></main>
+
+<script>
+const DAYS = [
+  {
+    id:"d1", label:"Día 1", sub:"25 jul",
+    title:"Primera noche en Tokio",
+    date:"Sábado 25 de julio · Llegada",
+    quote:"Hoy no se trata de correr para verlo todo, sino de disfrutar de vuestra primera noche en Tokio y empezar a enamoraros de Japón.",
+    items:[
+      { type:"pack", emoji:"🎒", title:"Antes de salir",
+        list:["Pasaporte","Suica cargada","Agua fría","Power bank","Ventilador portátil","Protector solar"] },
+      { type:"stop", time:"14:00", emoji:"✈️", title:"Llegada a Narita",
+        idea:"Aterrizáis y dais vuestros primeros pasos en Japón.",
+        desc:"Pasad inmigración, recoged las maletas y, si toca, activad la eSIM o recoged el Pocket WiFi. ¿Os faltan yenes? Sacad efectivo en los cajeros 7-Eleven ATM del aeropuerto.",
+        tips:[{c:"❤️",t:"Sin prisa: todo está muy bien señalizado."},{c:"✨",t:"Sacad algo de efectivo. En Japón aún se paga mucho en metálico."}] },
+      { type:"stop", time:"Tren", emoji:"🚄", title:"Narita Express (N'EX) a Shinjuku",
+        idea:"Tren directo y cómodo hasta el centro (1 h 20).",
+        desc:"Comprad el billete o usad el JR Pass si ya lo habéis activado, y subid dirección Shinjuku.",
+        tips:[{c:"🌸",t:"Hay espacio para el equipaje dentro del tren."}] },
+      { type:"stop", time:"Metro", emoji:"🚇", title:"Último tramo hasta el hotel",
+        idea:"Una sola parada de metro y ya estáis en el hotel.",
+        desc:"Desde Shinjuku Station seguid las indicaciones al metro. Toei Oedo Line dirección Roppongi / Daimon → bajad en Higashi-Shinjuku (1 parada). Salid por la Exit B2 y caminad 1 min.",
+        tips:[{c:"🚇",t:"Toei Oedo Line · 1 parada · Salida B2, la más cercana al hotel."}] },
+      { type:"stop", time:"Check-in", emoji:"🏨", title:"Sotetsu Fresa Inn Higashi-Shinjuku",
+        idea:"Soltáis las maletas, ducha rápida y… respiráis.",
+        desc:"Dejad las maletas, cambiaos de ropa y dejad todo listo para salir.",
+        tips:[{c:"✨",t:"No os echéis la siesta aunque caiga el sueño: aguantar despiertos ayuda muchísimo con el jet lag."}] },
+      { type:"stop", time:"18:30", emoji:"🌇", title:"Paseo por Shinjuku",
+        idea:"Primer paseo sin rumbo entre neones.",
+        desc:"Hoy no hace falta correr. Pasead, disfrutad del ambiente, mirad los neones y escuchad la ciudad.",
+        tips:[] },
+      { type:"stop", time:"Cena", emoji:"🍜", title:"Ichiran Ramen", stars:5,
+        idea:"Vuestro primer ramen, pedido en una máquina.",
+        desc:"Perfecto para la primera cena. Pedid el ramen clásico, huevo marinado y arroz (opcional). 1.500–2.000 ¥.",
+        tips:[{c:"❤️",t:"Pedir en máquina es completamente normal en Japón."},{c:"✨",t:"Cada uno come en su pequeña cabina individual: es parte del encanto."}] },
+      { type:"stop", time:"Noche", emoji:"🏮", title:"Omoide Yokocho",
+        idea:"Un callejón de farolillos que parece de otra época.",
+        desc:"Después de cenar, pasead por estos callejones. Asomaos a alguno de los bares diminutos: el ambiente merece muchísimo la pena.",
+        lore:"«El callejón de los recuerdos» nació tras la Segunda Guerra Mundial como zona de puestos y mercado negro. Hoy conserva ese ambiente de posguerra en apenas unos metros de bares de yakitori.",
+        tips:[{c:"📸",t:"Las callejuelas iluminadas son la foto estrella de la noche."}] },
+      { type:"stop", time:"Noche", emoji:"🦖", title:"Kabukichō",
+        idea:"Neón a tope y la cabeza gigante de Godzilla.",
+        desc:"El barrio más famoso de Shinjuku y uno de los rincones más icónicos de Tokio.",
+        lore:"Debe su nombre a un teatro kabuki que se proyectó tras la guerra pero nunca se construyó. Es el mayor barrio de ocio nocturno de Japón; la cabeza de Godzilla corona el edificio de Toho, el estudio que creó al monstruo.",
+        tips:[{c:"📸",t:"La cabeza de Godzilla sobre el edificio de TOHO Cinemas."}] },
+      { type:"stop", time:"Noche", emoji:"🍶", title:"Golden Gai",
+        idea:"Callejuelas de bares minúsculos, solo para pasear.",
+        desc:"Un conjunto de callejuelas llenas de bares para apenas cinco personas. No hace falta entrar en ninguno.",
+        lore:"Unos 200 bares minúsculos repartidos en seis callejones que sobrevivieron a la demolición. Desde hace décadas es refugio de escritores, artistas y cineastas.",
+        tips:[] },
+      { type:"stop", time:"Noche", emoji:"🛍️", title:"Don Quijote",
+        idea:"Caos divertido de snacks, dulces y souvenirs.",
+        desc:"Si tenéis energía, entrad un rato. El mejor sitio para empezar a descubrir cosas japonesas.",
+        tips:[{c:"✨",t:"Los KitKat de sabores raros son un recuerdo perfecto."}] },
+      { type:"stop", time:"Final", emoji:"🌙", title:"Vuelta al hotel",
+        idea:"De vuelta con calma; mañana toca día completo.",
+        desc:"Volved andando tranquilamente. Mañana empieza vuestra primera aventura completa por Tokio.",
+        tips:[] },
+      { type:"todo", emoji:"📸", title:"Las 5 fotos del día",
+        list:["Cartel de bienvenida de Narita","Primeros neones de Shinjuku","Ichiran Ramen","Cabeza de Godzilla","Callejuelas de Omoide Yokocho iluminadas"] },
+    ],
+    question:"Después de este primer día… ¿qué es lo que más ilusión os hace de las próximas semanas en Japón?",
+    memory:["Primera impresión de Japón","Primera comida","Foto favorita","Momento más emocionante"],
+    ratings:[["Templos","★☆☆☆☆"],["Ambiente","★★★★★"],["Fotos","★★★★★"],["Cansancio","★★☆☆☆"],["Comida","★★★★★"]],
+    next:"Meiji Jingū, Harajuku, Shibuya, Hachikō, Nintendo Store, Pokémon Center y Shibuya Sky al atardecer."
+  },
+  {
+    id:"d2", label:"Día 2", sub:"26 jul",
+    title:"El Tokio que soñamos",
+    date:"Domingo 26 de julio · Harajuku & Shibuya",
+    quote:"Un santuario en un bosque centenario, las calles más coloridas de Harajuku y el atardecer más espectacular de la ciudad.",
+    items:[
+      { type:"pack", emoji:"🎒", title:"Antes de salir",
+        list:["Suica","Agua fría","Protector solar","Power bank","Ventilador portátil","Toallita pequeña"] },
+      { type:"stop", time:"07:30", emoji:"🍳", title:"Desayuno japonés en el hotel",
+        idea:"Empezad con un desayuno japonés de verdad.",
+        desc:"Aunque haya opciones occidentales, probad al menos una vez: tamagoyaki, sopa de miso, arroz, pescado y café.",
+        tips:[{c:"❤️",t:"Es la forma más auténtica de empezar el día."}] },
+      { type:"stop", time:"08:30", emoji:"🚇", title:"Rumbo a Meiji Jingū",
+        idea:"Metro cortito hasta Harajuku.",
+        desc:"2 min hasta Higashi-Shinjuku. Fukutoshin Line dirección Shibuya → Meiji-Jingūmae. Exit 2 y 5 min andando hasta el gran torii.",
+        tips:[{c:"🚇",t:"Fukutoshin Line · ~8 min · ~210 ¥ con Suica."}] },
+      { type:"stop", time:"09:00", emoji:"⛩️", title:"Meiji Jingū", stars:5,
+        idea:"Un bosque sagrado escondido en pleno centro de Tokio.",
+        desc:"Más de 100.000 árboles rodean este santuario. No caminéis deprisa: sentaos un momento y disfrutad del silencio.",
+        lore:"Dedicado al emperador Meiji y a la emperatriz Shōken. El bosque no es natural: se plantó hacia 1920 con unos 100.000 árboles donados de todo Japón para crear, con el tiempo, un bosque eterno en mitad de la ciudad.",
+        tips:[{c:"🌸",t:"No os perdáis: el gran torii, los barriles de sake y la fuente de purificación."},{c:"📸",t:"Foto del torii rodeado de árboles; esperad a que no pase nadie."},{c:"✨",t:"Etiqueta: en la fuente (temizu) podéis purificaros las manos siguiendo a los japoneses, y una pequeña reverencia al cruzar el torii."}] },
+      { type:"stop", time:"10:40", emoji:"🌳", title:"Yoyogi Park",
+        idea:"Pausa verde antes del color de Harajuku.",
+        desc:"Uno de los parques más agradables de la ciudad, perfecto para descansar.",
+        lore:"Acogió la villa olímpica de los Juegos de Tokio 1964. Hoy es uno de los grandes pulmones de la ciudad y punto de encuentro de músicos y grupos los domingos.",
+        tips:[{c:"❤️",t:"Si veis gente de picnic o tocando música un domingo, quedaos un rato."}] },
+      { type:"stop", time:"11:15", emoji:"🍭", title:"Takeshita Street",
+        idea:"La calle más animada de Harajuku: crepes gigantes y tiendas curiosas.",
+        desc:"Moda, tiendas de personajes y accesorios. No os quedéis solo en la calle principal; las laterales son más curiosas.",
+        lore:"Desde los años 70 es el epicentro de la moda juvenil de Harajuku, donde han nacido muchas tendencias japonesas.",
+        tips:[{c:"🍴",t:"Compartid un crepe: son enormes, uno para dos suele bastar."},{c:"📸",t:"Foto bajo el cartel de Takeshita Street."}] },
+      { type:"stop", time:"12:45", emoji:"🥩", title:"Comida · Gyukatsu Motomura", stars:5,
+        idea:"Carne que termináis de hacer en vuestra propia piedra caliente.",
+        desc:"Uno de los restaurantes más famosos de Tokio. 2.000–2.500 ¥.",
+        tips:[{c:"🍴",t:"Pedid: gyukatsu clásico, arroz y sopa de miso."}] },
+      { type:"stop", time:"14:30", emoji:"🛍️", title:"Omotesandō",
+        idea:"La avenida elegante y la enorme Kiddy Land.",
+        desc:"La avenida más chic de Tokio. Fijaos en la arquitectura: muchos edificios son obras de arte.",
+        lore:"Apodada los «Campos Elíseos de Tokio»: una avenida arbolada con tiendas insignia diseñadas por algunos de los arquitectos más famosos del mundo.",
+        tips:[{c:"❤️",t:"Parada obligada: Kiddy Land, varias plantas de personajes. Entrad aunque no compréis."}] },
+      { type:"stop", time:"15:45", emoji:"🚶", title:"Paseo a Shibuya",
+        idea:"20 min andando, mucho mejor que el metro.",
+        desc:"Un paseo entre cafeterías y boutiques que merece la pena.",
+        tips:[] },
+      { type:"stop", time:"16:15", emoji:"🚦", title:"Shibuya",
+        idea:"Hachikō, el cruce y las tiendas de Nintendo y Pokémon.",
+        desc:"El barrio más famoso de Tokio: estatua de Hachikō, el cruce, Nintendo TOKYO, Pokémon Center y Loft.",
+        lore:"Hachikō era un perro akita que cada día iba a la estación a esperar a su dueño; siguió haciéndolo casi diez años tras la muerte de este, y hoy su estatua es el punto de encuentro más famoso de Tokio. El cruce de Shibuya es uno de los pasos de peatones más transitados del mundo.",
+        tips:[{c:"❤️",t:"Entrad primero al Pokémon Center: se llena a última hora."},{c:"📸",t:"Foto mientras cruzáis el paso de peatones. Nunca hay dos iguales."}] },
+      { type:"stop", time:"18:00", emoji:"🌇", title:"Shibuya Sky", stars:5,
+        idea:"El mejor atardecer de Tokio desde las alturas.",
+        desc:"Entrando sobre las 18:00 veréis Tokio de día, el atardecer y la ciudad iluminada, todo seguido.",
+        lore:"El mirador corona Shibuya Scramble Square (2019), a unos 230 m de altura, con una azotea abierta desde la que se ve el famoso cruce en miniatura.",
+        tips:[{c:"❤️",t:"Guardad el móvil cinco minutos y contemplad las vistas."},{c:"✨",t:"Reservad la entrada con semanas de antelación: se agota."}] },
+      { type:"stop", time:"20:00", emoji:"🍣", title:"Cena · Uobei Sushi", stars:5,
+        idea:"Sushi que llega volando a vuestra mesa por una cinta.",
+        desc:"Una forma divertida de cerrar el día.",
+        tips:[{c:"🍴",t:"Pedid: salmón, langostino, wagyu (si tienen) y un postre japonés."}] },
+      { type:"stop", time:"21:30", emoji:"🚇", title:"Vuelta al hotel",
+        idea:"Línea directa de vuelta a Shinjuku.",
+        desc:"Andando hasta Shibuya Station. Fukutoshin Line dirección Wakōshi → Higashi-Shinjuku (Exit B2) y 1 min al hotel.",
+        tips:[{c:"🚇",t:"Fukutoshin Line · ~10 min."}] },
+    ],
+    question:"Si pudierais repetir un momento de hoy ahora mismo, ¿cuál elegiría cada uno?",
+    memory:["Lugar favorito","Mejor comida","Foto favorita","Momento más divertido"],
+    ratings:[["Templos","★★★☆☆"],["Ambiente","★★★★★"],["Fotos","★★★★★"],["Cansancio","★★★★☆"],["Comida","★★★★★"]],
+    next:"El Tokio más tradicional: el templo Sensō-ji, las calles de Asakusa, el parque de Ueno y el paraíso del anime en Akihabara."
+  },
+];
+
+/* color por categoría según emoji */
+const CAT={ "✈️":"--c-transport","🚄":"--c-transport","🚇":"--c-transport","🚶":"--c-transport",
+  "🏨":"--c-hotel","🍳":"--c-food","🍜":"--c-food","🥩":"--c-food","🍣":"--c-food","🍭":"--c-food",
+  "🌳":"--c-nature","🛍️":"--c-shop" };
+const catVar=emoji=>CAT[emoji]||"--c-spot";
+
+function slug(s){return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");}
+DAYS.forEach(day=>{ day.items.forEach(it=>{ it._id=day.id+"-"+slug(it.title||it.type); }); });
+
+const KEY="japon2026-diario";
+let state={};
+try{ state=JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){ state={}; }
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+const isOn=id=>state[id]===true;
+const toggle=id=>{ state[id]=!state[id]; save(); };
+const getVal=id=>state[id]||"";
+const setVal=(id,v)=>{ state[id]=v; save(); };
+const open={};
+
+const stars=n=>"★".repeat(n);
+const escH=s=>(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const chevSVG=`<svg class="chev" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+function listProgress(it){ let d=0; it.list.forEach((_,i)=>{ if(isOn(it._id+"-"+i)) d++; }); return {done:d,total:it.list.length}; }
+function countDone(day){
+  let total=0,done=0;
+  day.items.forEach(it=>{
+    if(it.type==="stop"){ total++; if(isOn(it._id)) done++; }
+    else if(it.type==="todo"){ it.list.forEach((_,i)=>{ total++; if(isOn(it._id+"-"+i)) done++; }); }
+  });
+  return {total,done};
+}
+
+function buildTabs(){
+  const nav=document.getElementById("tabs"); nav.innerHTML="";
+  DAYS.forEach((day,i)=>{
+    const {total,done}=countDone(day); const pct=total?done/total:0; const C=2*Math.PI*10;
+    const btn=document.createElement("button");
+    btn.className="tab"+(i===current?" active":"");
+    btn.setAttribute("role","tab"); btn.setAttribute("aria-selected",i===current);
+    btn.innerHTML=`<svg class="ring" width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+      <circle cx="13" cy="13" r="10" fill="none" stroke="#e8e4da" stroke-width="3"/>
+      <circle cx="13" cy="13" r="10" fill="none" stroke="#cf4636" stroke-width="3" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-pct)}" transform="rotate(-90 13 13)"/>
+      <text x="13" y="16" text-anchor="middle" font-size="8.5">${done}</text></svg>
+      <span><span class="d-num">${day.label}</span><br><span class="d-sub">${day.sub}</span></span>`;
+    btn.onclick=()=>{ current=i; render(); document.getElementById("main").scrollIntoView({block:"start"}); };
+    nav.appendChild(btn);
+  });
+}
+
+function cardHTML(it){
+  const on=isOn(it._id), op=!!open[it._id];
+  const col=`var(${catVar(it.emoji)})`;
+  const tips=(it.tips||[]).map(t=>`<li><span class="ti">${t.c||"🌸"}</span><span>${t.t}</span></li>`).join("");
+  const timeChip=it.time?`<span class="time ${/^\d/.test(it.time)?"":"soft"}">${it.time}</span>`:"";
+  const lore=it.lore?`<div class="lore"><span class="lh">📖 Por qué es especial</span><p>${it.lore}</p></div>`:"";
+  return `<article class="card ${on?"done":""} ${op?"open":""}" style="border-left-color:${col}" data-id="${it._id}">
+    <div class="card-row">
+      <div class="htap" role="button" tabindex="0" data-expand="${it._id}" aria-expanded="${op}">
+        ${timeChip}<span class="emoji">${it.emoji}</span>
+        <span class="ttl"><h3>${it.title}${it.stars?`<span class="stars">${stars(it.stars)}</span>`:""}</h3><span class="idea">${it.idea}</span></span>
+        ${chevSVG}
+      </div>
+      <button class="stamp" data-toggle="${it._id}" aria-pressed="${on}" aria-label="Marcar ${it.title} como hecho"><span class="ph"></span><span class="ink"></span></button>
+    </div>
+    <div class="detail"><div class="detail-inner">
+      <p class="desc">${it.desc}</p>${lore}${tips?`<ul class="tips">${tips}</ul>`:""}
+    </div></div>
+  </article>`;
+}
+
+function checklistHTML(it){
+  const op=!!open[it._id]; const {done,total}=listProgress(it);
+  const rows=it.list.map((txt,i)=>{ const id=it._id+"-"+i; return `<button data-toggle="${id}" aria-pressed="${isOn(id)}"><span class="box"></span><span class="txt">${txt}</span></button>`; }).join("");
+  return `<div class="block ${it.type} ${op?"open":""}">
+    <div class="bhead" role="button" tabindex="0" data-expand="${it._id}" aria-expanded="${op}">
+      <span class="emoji">${it.emoji}</span><h4>${it.title}</h4>
+      <span class="count ${done===total?"full":""}">${done}/${total}</span>${chevSVG}
+    </div>
+    <div class="detail"><div class="detail-inner"><div class="micro">${rows}</div></div></div>
+  </div>`;
+}
+
+function journalHTML(day){
+  const qid=day.id+"-pregunta", fid=day.id+"-foto", rid=day.id+"-rating";
+  const photo=getVal(fid);
+  const photoBlock = photo
+    ? `<div class="photo-wrap"><img src="${photo}" alt="Foto favorita del día"></div><button class="photo-rm" data-rmphoto="${fid}">Cambiar / quitar foto</button>`
+    : `<label class="photo-zone" for="file-${fid}">📷 Toca para añadir vuestra foto favorita del día</label><input class="hidden-file" id="file-${fid}" type="file" accept="image/*" data-photo="${fid}">`;
+  const fields=day.memory.map((lab,i)=>{ const id=day.id+"-rec-"+i; return `<div class="mfield"><label>${lab}</label><input class="fld" type="text" data-field="${id}" value="${escH(getVal(id))}" placeholder="Escribid aquí…"></div>`; }).join("");
+  const rv=parseInt(getVal(rid)||"0",10);
+  const hearts=[1,2,3,4,5].map(n=>`<button class="${n<=rv?"on":""}" data-rate="${rid}" data-val="${n}" aria-label="${n} de 5">❤️</button>`).join("");
+  return `<div class="journal"><div class="journal-in">
+    <div class="journal-h">Vuestro diario de hoy</div>
+    <div class="journal-sub">Para rellenar juntos al final del día</div>
+    <div class="jcard"><div class="jt">🎲 Pregunta del día</div><p class="qtext">${day.question}</p><textarea data-field="${qid}" placeholder="Vuestra respuesta…">${escH(getVal(qid))}</textarea></div>
+    <div class="jcard"><div class="jt">📸 Foto favorita del día</div>${photoBlock}</div>
+    <div class="jcard"><div class="jt">📝 Recuerdo del día</div>${fields}</div>
+    <div class="jcard" style="text-align:center"><div class="jt" style="justify-content:center">⭐ Vuestra valoración del día</div><div class="hearts">${hearts}</div></div>
+  </div></div>`;
+}
+
+function buildDay(day){
+  const {total,done}=countDone(day); const pct=total?Math.round(done/total*100):0;
+  let body=""; day.items.forEach(it=>{ body += (it.type==="stop") ? cardHTML(it) : checklistHTML(it); });
+  const ratings=day.ratings.map(r=>`<span>${r[0]} <b>${r[1]}</b></span>`).join("");
+  return `<section class="day show" id="${day.id}">
+    <div class="intro"><div class="eyebrow">${day.label}</div><h2>${day.title}</h2><div class="date">${day.date}</div><p class="quote">${day.quote}</p></div>
+    <div class="progress"><div class="bar"><div class="fill" style="width:${pct}%"></div></div><div class="lbl"><span>Vuestro progreso</span><span><b>${done}</b> / ${total} hechos</span></div></div>
+    <div class="list">${body}</div>
+    ${journalHTML(day)}
+    <div class="day-foot"><div class="ratings">${ratings}</div><div class="next"><b>Mañana →</b> ${day.next}</div><button class="reset" data-reset="${day.id}">Reiniciar este día</button></div>
+    <p class="note">Toca cada parada para ver los detalles. Todo lo que marquéis y escribáis se guarda solo en este teléfono.</p>
+  </section>`;
+}
+
+let current=0;
+function render(){ buildTabs(); document.getElementById("main").innerHTML=buildDay(DAYS[current]); }
+
+function doExpand(tr){ const id=tr.getAttribute("data-expand"); const box=tr.closest(".card, .block"); open[id]=!open[id]; box.classList.toggle("open",open[id]); tr.setAttribute("aria-expanded",open[id]); }
+
+function handlePhoto(file,id){
+  const reader=new FileReader();
+  reader.onload=e=>{ const img=new Image(); img.onload=()=>{
+      const max=1100; let w=img.width,h=img.height;
+      if(w>h&&w>max){ h=Math.round(h*max/w); w=max; } else if(h>=w&&h>max){ w=Math.round(w*max/h); h=max; }
+      const c=document.createElement("canvas"); c.width=w; c.height=h; c.getContext("2d").drawImage(img,0,0,w,h);
+      try{ setVal(id,c.toDataURL("image/jpeg",0.72)); }catch(err){} render();
+    }; img.src=e.target.result; };
+  reader.readAsDataURL(file);
+}
+
+document.addEventListener("click",e=>{
+  const ex=e.target.closest("[data-expand]"); if(ex){ doExpand(ex); return; }
+  const rt=e.target.closest("[data-rate]"); if(rt){ setVal(rt.getAttribute("data-rate"),rt.getAttribute("data-val")); render(); return; }
+  const rm=e.target.closest("[data-rmphoto]"); if(rm){ setVal(rm.getAttribute("data-rmphoto"),""); render(); return; }
+  const t=e.target.closest("[data-toggle]"); if(t){ toggle(t.getAttribute("data-toggle")); render(); return; }
+  const r=e.target.closest("[data-reset]"); if(r){
+    if(!confirm("¿Reiniciar las marcas de este día? (Tus textos y fotos se mantienen)")) return;
+    const day=DAYS.find(d=>d.id===r.getAttribute("data-reset"));
+    day.items.forEach(it=>{ if(it.list) it.list.forEach((_,i)=>delete state[it._id+"-"+i]); else delete state[it._id]; });
+    save(); render();
+  }
+});
+document.addEventListener("input",e=>{ const f=e.target.closest("[data-field]"); if(f) setVal(f.getAttribute("data-field"),f.value); });
+document.addEventListener("change",e=>{ const ph=e.target.closest("[data-photo]"); if(ph&&ph.files&&ph.files[0]) handlePhoto(ph.files[0],ph.getAttribute("data-photo")); });
+document.addEventListener("keydown",e=>{ if((e.key==="Enter"||e.key===" ")&&e.target.matches("[data-expand]")){ e.preventDefault(); doExpand(e.target); } });
+
+render();
+</script>
+</body>
+</html>
