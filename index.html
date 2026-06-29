@@ -202,6 +202,8 @@
   .map-legend{display:flex;flex-wrap:wrap;gap:7px 13px;justify-content:center;margin-top:12px;font-size:11.5px;color:var(--ink-soft);}
   .map-legend span{display:inline-flex;align-items:center;gap:5px;}
   .map-legend i{width:10px;height:10px;border-radius:50%;display:inline-block;border:1.5px solid #fff;box-shadow:0 0 0 1px var(--line);}
+  .maplbl{background:rgba(255,255,255,.93);border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-family:"Zen Kaku Gothic New",sans-serif;font-size:10px;font-weight:700;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.14);white-space:normal;max-width:130px;line-height:1.2;text-align:center;}
+  .maplbl:before{display:none!important;}
 </style>
 </head>
 <body>
@@ -756,11 +758,12 @@ function initMap(day){
   const pts=day.items.filter(it=>it.geo);
   if(!pts.length){ el.innerHTML='<div style="padding:24px;text-align:center;color:#9b97a1;font-size:13px">Sin ubicaciones para este día.</div>'; return; }
   const map=L.map(el,{scrollWheelZoom:false}); mapObjs[day.id]=map;
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png',{maxZoom:20,subdomains:'abcd',attribution:'© OpenStreetMap © CARTO'}).addTo(map);
   const latlngs=[];
   pts.forEach(it=>{ const ll=it.geo; latlngs.push(ll);
-    L.circleMarker(ll,{radius:9,color:'#fff',weight:2,fillColor:catHex(it.emoji),fillOpacity:1})
-      .addTo(map).bindPopup(`<b>${it.emoji} ${it.title}</b>${it.time?'<br>'+it.time:''}`);
+    const mk=L.circleMarker(ll,{radius:8,color:'#fff',weight:2,fillColor:catHex(it.emoji),fillOpacity:1}).addTo(map);
+    mk.bindPopup(`<b>${it.emoji} ${it.title}</b>${it.time?'<br>'+it.time:''}`);
+    mk.bindTooltip(`${it.emoji} ${it.title}`,{permanent:true,direction:'top',offset:[0,-4],className:'maplbl'});
   });
   L.polyline(latlngs,{color:'#cf4636',weight:3,opacity:.45,dashArray:'6 7'}).addTo(map);
   map.fitBounds(latlngs,{padding:[34,34]});
