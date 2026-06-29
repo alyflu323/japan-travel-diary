@@ -44,7 +44,7 @@
   .brand{display:flex;align-items:center;gap:11px;justify-content:center;max-width:760px;margin:0 auto;}
   .seal{flex:none;width:36px;height:36px;border-radius:10px;background:var(--accent);color:#fff;display:grid;place-items:center;font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:19px;box-shadow:0 4px 10px -4px rgba(168,57,44,.5);}
   .brandtxt small{display:block;font-weight:700;font-size:9.5px;letter-spacing:2.4px;text-transform:uppercase;color:var(--accent);}
-  .brandtxt h1{font-family:"Shippori Mincho B1",serif;font-weight:700;font-size:clamp(17px,4.8vw,21px);margin:1px 0 0;letter-spacing:.3px;color:var(--ink);}
+  .brandtxt h1{font-family:"Shippori Mincho B1",serif;font-weight:700;font-size:clamp(22px,6vw,28px);margin:1px 0 0;letter-spacing:.3px;color:var(--ink);}
 
   nav{max-width:760px;margin:11px auto 0;display:flex;gap:8px;overflow-x:auto;padding:0 2px 11px;scrollbar-width:none;}
   nav::-webkit-scrollbar{display:none;}
@@ -204,6 +204,73 @@
   .map-legend i{width:10px;height:10px;border-radius:50%;display:inline-block;border:1.5px solid #fff;box-shadow:0 0 0 1px var(--line);}
   .maplbl{background:rgba(255,255,255,.93);border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-family:"Zen Kaku Gothic New",sans-serif;font-size:10px;font-weight:700;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.14);white-space:normal;max-width:130px;line-height:1.2;text-align:center;}
   .maplbl:before{display:none!important;}
+
+  /* cuenta atrás */
+  .cd{margin:6px 0 16px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));border-radius:20px;padding:18px 16px;text-align:center;color:#fff;box-shadow:0 14px 30px -18px rgba(168,57,44,.7);}
+  .cd-lbl{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;opacity:.92;font-weight:700;}
+  .cd-days{font-family:"Shippori Mincho B1",serif;font-size:46px;font-weight:800;line-height:1;margin:5px 0 3px;}
+  .cd-days small{font-size:16px;font-weight:700;opacity:.95;}
+  .cd-hms{font-size:13px;opacity:.92;font-variant-numeric:tabular-nums;letter-spacing:.5px;}
+  .cd-sub{font-size:12px;opacity:.95;margin-top:7px;}
+
+  /* dato curioso */
+  .fact{background:var(--paper-2);border:1px solid var(--line);border-left:4px solid var(--c-nature);border-radius:var(--r);padding:14px 15px;margin-bottom:16px;box-shadow:var(--shadow);}
+  .fact .ft{font-family:"Shippori Mincho B1",serif;font-weight:700;font-size:14px;margin-bottom:7px;}
+  .fact p{margin:0 0 11px;font-size:13px;color:var(--ink-soft);line-height:1.5;}
+  .fact button{background:var(--soft);border:none;border-radius:99px;padding:8px 15px;font-family:inherit;font-size:12px;font-weight:700;color:var(--accent-deep);cursor:pointer;}
+  .fact button:hover{background:#e7e3d8;}
+
+  /* resumen */
+  .sm-stats{display:flex;gap:9px;margin:8px 0 18px;}
+  .sm-stat{flex:1;background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:12px 6px;text-align:center;box-shadow:var(--shadow);}
+  .sm-stat b{display:block;font-family:"Shippori Mincho B1",serif;font-size:16px;color:var(--accent);}
+  .sm-stat span{font-size:10px;color:var(--muted);}
+  .sm-card{background:var(--paper-2);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:var(--r);padding:13px 14px;margin-bottom:11px;box-shadow:var(--shadow);}
+  .sm-head{display:flex;justify-content:space-between;align-items:center;}
+  .sm-day{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent);}
+  .sm-spent{font-weight:700;font-size:13px;color:var(--ink);}
+  .sm-title{font-family:"Shippori Mincho B1",serif;font-size:15px;font-weight:700;margin:2px 0 6px;}
+  .sm-hearts{font-size:14px;letter-spacing:1px;}
+  .sm-dim{font-size:11.5px;color:var(--muted);font-style:italic;letter-spacing:0;}
+  .sm-photo{width:100%;border-radius:11px;margin-top:10px;display:block;}
+  .sm-mems{margin-top:9px;display:flex;flex-direction:column;gap:4px;}
+  .sm-mem{font-size:12px;color:var(--ink-soft);}
+  .sm-mem b{color:var(--accent-deep);}
+  .sm-grand{text-align:center;font-family:"Shippori Mincho B1",serif;font-size:15px;margin:6px 0 2px;color:var(--ink);}
+  .sm-grand b{color:var(--accent);}
+
+  /* japonés: chuleta */
+  .ph-cat{font-family:"Shippori Mincho B1",serif;font-size:13px;font-weight:700;color:var(--accent);margin:18px 0 7px;letter-spacing:.3px;}
+  .ph-list{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;}
+  .ph-row{padding:10px 14px;border-bottom:1px solid var(--line);}
+  .ph-row:last-child{border-bottom:none;}
+  .ph-es{font-size:12px;color:var(--muted);}
+  .ph-ro{font-family:"Shippori Mincho B1",serif;font-size:15px;font-weight:700;color:var(--ink);margin-top:1px;}
+  .ph-say{font-size:12px;color:var(--ink-soft);font-style:italic;margin-top:1px;}
+
+  /* reto de pareja */
+  .quiz{background:var(--paper-2);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:16px 15px;}
+  .quiz-h{text-align:center;font-family:"Shippori Mincho B1",serif;font-size:16px;margin:0 0 2px;color:var(--ink);}
+  .quiz-sub{text-align:center;font-size:11px;color:var(--muted);margin-bottom:14px;}
+  .scoreboard{display:flex;gap:10px;margin-bottom:14px;}
+  .score{flex:1;border-radius:14px;padding:10px;text-align:center;border:2px solid var(--line);background:#fff;transition:.2s;}
+  .score.alyssa{border-color:#eab4c7;} .score.pol{border-color:#aebada;}
+  .score.turn.alyssa{box-shadow:0 0 0 3px rgba(196,78,126,.15);border-color:#c44e7e;}
+  .score.turn.pol{box-shadow:0 0 0 3px rgba(79,106,163,.15);border-color:#4f6aa3;}
+  .score .nm{font-size:12px;font-weight:700;}
+  .score.alyssa .nm{color:#c44e7e;} .score.pol .nm{color:#4f6aa3;}
+  .score .pts{font-family:"Shippori Mincho B1",serif;font-size:27px;font-weight:800;color:var(--ink);line-height:1;margin-top:2px;}
+  .turnlbl{text-align:center;font-size:13.5px;font-weight:700;color:var(--ink-soft);margin-bottom:11px;}
+  .q-prompt{text-align:center;font-size:15px;color:var(--ink);margin-bottom:13px;line-height:1.4;}
+  .q-prompt b{color:var(--accent-deep);}
+  .opts{display:flex;flex-direction:column;gap:8px;}
+  .opt{border:1px solid var(--line);background:#fff;border-radius:11px;padding:11px 13px;font-family:inherit;font-size:13.5px;color:var(--ink);text-align:left;cursor:pointer;transition:.15s;}
+  .opt:hover{border-color:var(--accent);}
+  .opt.correct{background:#e8f4ea;border-color:#5a9367;color:#2f6b46;font-weight:700;}
+  .opt.wrong{background:#fbe9e7;border-color:#cf4636;color:#a8392c;}
+  .q-next{display:block;width:100%;margin-top:6px;border:none;border-radius:11px;background:var(--accent);color:#fff;font-family:inherit;font-size:14px;font-weight:700;padding:11px;cursor:pointer;}
+  .quiz-start{display:block;width:100%;border:none;border-radius:11px;background:var(--accent);color:#fff;font-size:14px;font-weight:700;padding:12px;cursor:pointer;font-family:inherit;}
+  .q-reset{display:block;margin:11px auto 0;background:none;border:1px solid var(--line);color:var(--muted);border-radius:99px;font-size:11.5px;padding:6px 14px;cursor:pointer;font-family:inherit;}
 </style>
 </head>
 <body>
@@ -212,8 +279,8 @@
   <div class="brand">
     <div class="seal">旅</div>
     <div class="brandtxt">
-      <small>Alyssa &amp; Pol · 2026</small>
-      <h1>Japan Travel Diary</h1>
+      <small>Japan Travel Diary · 2026</small>
+      <h1>Alyssa <span style="color:var(--accent)">♡</span> Pol</h1>
     </div>
   </div>
   <nav id="tabs" aria-label="Días del viaje"></nav>
@@ -595,6 +662,8 @@ const DAYS = [
     ratings:[["Templos","★☆☆☆☆"],["Ambiente","★★★★★"],["Fotos","★★★★★"],["Cansancio","★★★☆☆"],["Comida","★★★★★"]],
     next:"Cambio de aires: ponéis rumbo a Kioto, el corazón tradicional de Japón. ⛩️"
   },
+  { id:"lang", lang:true, label:"Japonés", sub:"Frases", title:"Japonés básico", date:"", quote:"", items:[] },
+  { id:"resumen", summary:true, label:"Resumen", sub:"Fin del viaje", title:"Resumen del viaje", date:"", quote:"", items:[] },
 ];
 
 /* color por categoría según emoji */
@@ -628,6 +697,73 @@ const GEO={
 };
 const catHex=emoji=>CATHEX[catVar(emoji)]||"#cf4636";
 let viewMode={}; let mapObjs={};
+
+/* cuenta atrás */
+const TRIP_START=new Date(2026,6,25,0,0,0);
+const pad=n=>String(n).padStart(2,"0");
+function tick(){
+  const wrap=document.getElementById("cdwrap"); if(!wrap) return;
+  const dEl=document.getElementById("cd-days"), hEl=document.getElementById("cd-hms"), sub=document.getElementById("cd-sub");
+  let ms=TRIP_START-new Date();
+  if(ms<=0){ if(dEl)dEl.innerHTML="¡Ya!"; if(hEl)hEl.textContent=""; if(sub)sub.textContent="¡El viaje ha empezado! 🎉"; return; }
+  const d=Math.floor(ms/86400000); ms-=d*86400000;
+  const h=Math.floor(ms/3600000); ms-=h*3600000;
+  const m=Math.floor(ms/60000); ms-=m*60000;
+  const s=Math.floor(ms/1000);
+  if(dEl)dEl.innerHTML=`${d} <small>${d===1?"día":"días"}</small>`;
+  if(hEl)hEl.textContent=`${pad(h)} h ${pad(m)} m ${pad(s)} s`;
+}
+
+/* datos curiosos */
+const FACTS=[
+  "En Japón hay millones de máquinas expendedoras: encontraréis bebidas frías (¡y calientes!) hasta en mitad del campo.",
+  "En muchos restaurantes se pide en una máquina con fotos y se paga antes de sentarse.",
+  "No se suele dar propina: el buen servicio se da por hecho y dejarla puede incluso incomodar.",
+  "En los trenes se viaja en silencio: nada de llamadas, y mucha gente echa la siesta tranquilamente.",
+  "Apenas hay papeleras en la calle y aun así está todo limpísimo: la gente se lleva su basura a casa.",
+  "Sorber los fideos del ramen no es de mala educación: ¡significa que te está gustando!",
+  "Los konbini (7-Eleven, Lawson, FamilyMart) abren 24 h y tienen comida sorprendentemente buena y barata.",
+  "El Monte Fuji solo se puede escalar de forma oficial unas pocas semanas en verano.",
+  "Muchos baños tienen asiento calentito, música y mil botones; algunos hasta hacen ruidos para disimular.",
+  "El tren bala (Shinkansen) lleva más de 50 años con una puntualidad casi perfecta.",
+  "En verano se celebran los matsuri: festivales con yukata, farolillos y fuegos artificiales.",
+  "En muchos sitios se entra sin zapatos: templos, algunos restaurantes y las casas.",
+  "Hasta las tapas de alcantarilla son arte: cada ciudad tiene su propio diseño de colores."
+];
+let factIdx=Math.floor(Math.random()*FACTS.length);
+
+function summaryHTML(day){
+  const real=DAYS.filter(d=>!d.prep&&!d.summary);
+  let doneStops=0,totalStops=0;
+  real.forEach(d=>d.items.forEach(it=>{ if(it.type==="stop"){ totalStops++; if(isOn(it._id)) doneStops++; } }));
+  const photos=real.filter(d=>getVal(d.id+"-foto")).length;
+  const grand=tripTotal();
+  const cards=real.map(d=>{
+    const rv=parseInt(getVal(d.id+"-rating")||"0",10);
+    const hearts=[1,2,3,4,5].map(n=>n<=rv?"❤️":"🤍").join("");
+    const spent=getExp(d).reduce((s,e)=>s+(+e.a||0),0);
+    const photo=getVal(d.id+"-foto");
+    const mem=(d.memory||[]).map((lab,i)=>{ const v=getVal(d.id+"-rec-"+i); return v?`<div class="sm-mem"><b>${lab}:</b> ${escH(v)}</div>`:""; }).join("");
+    return `<div class="sm-card">
+      <div class="sm-head"><span class="sm-day">${d.label} · ${d.sub}</span><span class="sm-spent">${fmtYen(spent)}</span></div>
+      <div class="sm-title">${d.title}</div>
+      <div class="sm-hearts">${rv?hearts:'<span class="sm-dim">sin valorar aún</span>'}</div>
+      ${photo?`<img class="sm-photo" src="${photo}" alt="Foto de ${d.label}">`:""}
+      ${mem?`<div class="sm-mems">${mem}</div>`:""}
+    </div>`;
+  }).join("");
+  return `<section class="day show" id="resumen">
+    <div class="intro"><div class="eyebrow">Fin del viaje</div><h2>Resumen del viaje</h2><div class="date">Vuestra aventura en Japón, día a día</div></div>
+    <div class="sm-stats">
+      <div class="sm-stat"><b>${doneStops}/${totalStops}</b><span>paradas hechas</span></div>
+      <div class="sm-stat"><b>${fmtYen(grand)}</b><span>gastado en total</span></div>
+      <div class="sm-stat"><b>${photos}</b><span>fotos guardadas</span></div>
+    </div>
+    ${cards}
+    <div class="sm-grand">Total del viaje: <b>${fmtYen(grand)}</b></div>
+    <p class="note">Este resumen se rellena solo con lo que vais marcando, gastando y guardando cada día.</p>
+  </section>`;
+}
 
 function slug(s){return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");}
 DAYS.forEach(day=>{ day.items.forEach(it=>{ it._id=day.id+"-"+slug(it.title||it.type); it.geo=GEO[day.id+"|"+(it.title||"")]||null; }); });
@@ -770,12 +906,84 @@ function initMap(day){
   setTimeout(()=>{ try{ map.invalidateSize(); }catch(e){} },120);
 }
 
+const PHRASES=[
+  {cat:"Saludos", es:"Hola", ro:"Konnichiwa", say:"kon-ni-chi-wa"},
+  {cat:"Saludos", es:"Buenos días", ro:"Ohayō (gozaimasu)", say:"o-ja-oo (go-zai-mas)"},
+  {cat:"Saludos", es:"Buenas noches", ro:"Konbanwa", say:"kon-ban-wa"},
+  {cat:"Saludos", es:"Adiós", ro:"Sayōnara", say:"sa-yoo-na-ra"},
+  {cat:"Saludos", es:"Hasta luego", ro:"Mata ne", say:"ma-ta ne"},
+  {cat:"Cortesía", es:"Gracias", ro:"Arigatō (gozaimasu)", say:"a-ri-ga-too (go-zai-mas)"},
+  {cat:"Cortesía", es:"De nada", ro:"Dō itashimashite", say:"doo i-ta-shi-mash-te"},
+  {cat:"Cortesía", es:"Por favor", ro:"Onegaishimasu", say:"o-ne-gai-shi-mas"},
+  {cat:"Cortesía", es:"Perdón / disculpe", ro:"Sumimasen", say:"su-mi-ma-sen"},
+  {cat:"Cortesía", es:"Sí / No", ro:"Hai / Iie", say:"jai / ii-e"},
+  {cat:"En el restaurante", es:"¡Qué rico!", ro:"Oishii", say:"oi-shii"},
+  {cat:"En el restaurante", es:"La cuenta, por favor", ro:"O-kaikei onegaishimasu", say:"o-kai-kee o-ne-gai-shi-mas"},
+  {cat:"En el restaurante", es:"¡Que aproveche! (antes de comer)", ro:"Itadakimasu", say:"i-ta-da-ki-mas"},
+  {cat:"En el restaurante", es:"Agua", ro:"Mizu", say:"mi-zu"},
+  {cat:"Compras y calle", es:"¿Cuánto cuesta?", ro:"Ikura desu ka?", say:"i-ku-ra des ka"},
+  {cat:"Compras y calle", es:"Esto, por favor", ro:"Kore o kudasai", say:"ko-re o ku-da-sai"},
+  {cat:"Compras y calle", es:"¿Dónde está…?", ro:"…wa doko desu ka?", say:"...wa do-ko des ka"},
+  {cat:"Compras y calle", es:"Estación", ro:"Eki", say:"e-ki"},
+  {cat:"Expresiones útiles", es:"¡Qué mono! / bonito", ro:"Kawaii", say:"ka-wa-ii"},
+  {cat:"Expresiones útiles", es:"¡Genial! / increíble", ro:"Sugoi", say:"su-goi"},
+  {cat:"Expresiones útiles", es:"Está bien / vale", ro:"Daijōbu", say:"dai-yoo-bu"},
+  {cat:"Expresiones útiles", es:"No entiendo", ro:"Wakarimasen", say:"wa-ka-ri-ma-sen"},
+  {cat:"Expresiones útiles", es:"¿Habla inglés?", ro:"Eigo o hanasemasu ka?", say:"ee-go o ha-na-se-mas ka"}
+];
+function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+let quizQ=null, quizAns=null, quizTurn="alyssa";
+function newQuestion(){
+  const correct=PHRASES[Math.floor(Math.random()*PHRASES.length)];
+  const others=shuffle(PHRASES.filter(p=>p!==correct)).slice(0,3);
+  const dir=Math.random()<0.5?"mean":"say";
+  let prompt, opts;
+  if(dir==="mean"){ prompt=`¿Qué significa <b>${correct.ro}</b>?`; opts=[correct,...others].map(p=>({text:p.es, ok:p===correct})); }
+  else { prompt=`¿Cómo se dice <b>${correct.es}</b>?`; opts=[correct,...others].map(p=>({text:p.ro, ok:p===correct})); }
+  shuffle(opts); quizQ={prompt,opts}; quizAns=null;
+}
+function quizBlock(){
+  const aly=parseInt(getVal("quiz-alyssa")||"0",10), pol=parseInt(getVal("quiz-pol")||"0",10);
+  const name=quizTurn==="alyssa"?"Alyssa":"Pol", col=quizTurn==="alyssa"?"#c44e7e":"#4f6aa3";
+  const board=`<div class="scoreboard">
+    <div class="score alyssa ${quizTurn==='alyssa'?'turn':''}"><div class="nm">Alyssa</div><div class="pts">${aly}</div></div>
+    <div class="score pol ${quizTurn==='pol'?'turn':''}"><div class="nm">Pol</div><div class="pts">${pol}</div></div></div>`;
+  let inner;
+  if(!quizQ){
+    inner=`<div class="turnlbl">Empieza <b style="color:${col}">${name}</b></div><button class="quiz-start" data-startquiz>Empezar el reto ✨</button>`;
+  } else {
+    const opts=quizQ.opts.map((o,i)=>{ let cls="opt"; if(quizAns){ if(o.ok) cls+=" correct"; else if(quizAns.idx===i) cls+=" wrong"; } return `<button class="${cls}" data-ans="${i}" ${quizAns?"disabled":""}>${o.text}</button>`; }).join("");
+    let foot="";
+    if(quizAns){ const msg=quizAns.ok?"¡Correcto! +1 punto 🎉":"¡Casi! Le toca al otro 😜"; foot=`<div class="turnlbl" style="margin-top:13px">${msg}</div><button class="q-next" data-next>Siguiente turno →</button>`; }
+    inner=`<div class="turnlbl">Turno de <b style="color:${col}">${name}</b></div><div class="q-prompt">${quizQ.prompt}</div><div class="opts">${opts}</div>${foot}`;
+  }
+  return `<div class="quiz"><div class="quiz-h">🎮 Reto de pareja</div><div class="quiz-sub">Por turnos · a ver quién sabe más japonés</div>${board}${inner}<button class="q-reset" data-quizreset>Reiniciar marcador</button></div>`;
+}
+function langHTML(day){
+  const cats=["Saludos","Cortesía","En el restaurante","Compras y calle","Expresiones útiles"];
+  const book=cats.map(c=>{
+    const rows=PHRASES.filter(p=>p.cat===c).map(p=>`<div class="ph-row"><div class="ph-es">${p.es}</div><div class="ph-ro">${p.ro}</div><div class="ph-say">${p.say}</div></div>`).join("");
+    return `<div class="ph-cat">${c}</div><div class="ph-list">${rows}</div>`;
+  }).join("");
+  return `<section class="day show" id="lang">
+    <div class="intro"><div class="eyebrow">Japonés básico</div><h2>Cuatro palabras y a Japón</h2><div class="date">Lo justo para defenderse y echar unas risas</div></div>
+    ${quizBlock()}
+    <div class="ph-cat" style="margin-top:24px">📖 Chuleta de frases</div>
+    ${book}
+    <p class="note">Con un «Sumimasen» (perdón) y un «Arigatō» (gracias) ya os ganáis a medio Japón.</p>
+  </section>`;
+}
+
 function buildDay(day){
   const {total,done}=countDone(day); const pct=total?Math.round(done/total*100):0;
+  if(day.summary){ return summaryHTML(day); }
+  if(day.lang){ return langHTML(day); }
   const intro=`<div class="intro"><div class="eyebrow">${day.prep?"Antes de viajar":day.label}</div><h2>${day.title}</h2><div class="date">${day.date}</div><p class="quote">${day.quote}</p></div>`;
   const progress=`<div class="progress"><div class="bar"><div class="fill" style="width:${pct}%"></div></div><div class="lbl"><span>${day.prep?"Preparativos listos":"Vuestro progreso"}</span><span><b>${done}</b> / ${total} hechos</span></div></div>`;
   if(day.prep){
-    return `<section class="day show" id="${day.id}">${intro}${progress}<div class="list">${day.items.map(it=> it.type==="stop"?cardHTML(it):checklistHTML(it)).join("")}</div><p class="note">${day.note}</p></section>`;
+    const cd=`<div class="cd" id="cdwrap"><div class="cd-lbl">Cuenta atrás</div><div class="cd-days" id="cd-days">·</div><div class="cd-hms" id="cd-hms"></div><div class="cd-sub" id="cd-sub">para vuestra aventura en Japón ✈️</div></div>`;
+    const fact=`<div class="fact"><div class="ft">✨ ¿Sabíais que…?</div><p id="facttext">${FACTS[factIdx]}</p><button data-fact>Otro dato ✨</button></div>`;
+    return `<section class="day show" id="${day.id}">${intro}${cd}${fact}${progress}<div class="list">${day.items.map(it=> it.type==="stop"?cardHTML(it):checklistHTML(it)).join("")}</div><p class="note">${day.note}</p></section>`;
   }
   const vm=viewMode[day.id]||"list";
   const seg=`<div class="seg"><button class="${vm==='list'?'active':''}" data-view="list" data-day="${day.id}">📋 Lista</button><button class="${vm==='map'?'active':''}" data-view="map" data-day="${day.id}">🗺️ Mapa</button></div>`;
@@ -796,7 +1004,7 @@ function buildDay(day){
 }
 
 let current=0;
-function render(){ buildTabs(); document.getElementById("main").innerHTML=buildDay(DAYS[current]); const d=DAYS[current]; if(!d.prep && (viewMode[d.id]||"list")==="map") initMap(d); }
+function render(){ buildTabs(); document.getElementById("main").innerHTML=buildDay(DAYS[current]); const d=DAYS[current]; if(!d.prep && !d.summary && (viewMode[d.id]||"list")==="map") initMap(d); tick(); }
 
 function doExpand(tr){ const id=tr.getAttribute("data-expand"); const box=tr.closest(".card, .block"); open[id]=!open[id]; box.classList.toggle("open",open[id]); tr.setAttribute("aria-expanded",open[id]); }
 
@@ -814,6 +1022,12 @@ function handlePhoto(file,id){
 document.addEventListener("click",e=>{
   const vv=e.target.closest("[data-view]");
   if(vv){ viewMode[vv.getAttribute("data-day")]=vv.getAttribute("data-view"); render(); return; }
+  const ff=e.target.closest("[data-fact]");
+  if(ff){ factIdx=(factIdx+1)%FACTS.length; const t=document.getElementById("facttext"); if(t) t.textContent=FACTS[factIdx]; return; }
+  const sq=e.target.closest("[data-startquiz]"); if(sq){ newQuestion(); render(); return; }
+  const an=e.target.closest("[data-ans]"); if(an){ if(quizAns) return; const i=+an.getAttribute("data-ans"); const ok=quizQ.opts[i].ok; quizAns={idx:i,ok}; if(ok){ const k="quiz-"+quizTurn; setVal(k,String(parseInt(getVal(k)||"0",10)+1)); } render(); return; }
+  const nx=e.target.closest("[data-next]"); if(nx){ quizTurn=quizTurn==="alyssa"?"pol":"alyssa"; newQuestion(); render(); return; }
+  const qr=e.target.closest("[data-quizreset]"); if(qr){ if(!confirm("¿Reiniciar el marcador de Alyssa y Pol?")) return; setVal("quiz-alyssa","0"); setVal("quiz-pol","0"); render(); return; }
   const ax=e.target.closest("[data-addexp]");
   if(ax){ const d=DAYS.find(x=>x.id===ax.getAttribute("data-addexp"));
     const ci=document.getElementById("exp-c-"+d.id), ai=document.getElementById("exp-a-"+d.id);
@@ -837,7 +1051,7 @@ document.addEventListener("input",e=>{ const f=e.target.closest("[data-field]");
 document.addEventListener("change",e=>{ const ph=e.target.closest("[data-photo]"); if(ph&&ph.files&&ph.files[0]) handlePhoto(ph.files[0],ph.getAttribute("data-photo")); });
 document.addEventListener("keydown",e=>{ if((e.key==="Enter"||e.key===" ")&&e.target.matches("[data-expand]")){ e.preventDefault(); doExpand(e.target); } });
 
-render();
+render(); tick(); setInterval(tick,1000);
 </script>
 </body>
 </html>
